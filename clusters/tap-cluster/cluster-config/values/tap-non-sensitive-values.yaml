@@ -1,6 +1,11 @@
 ---
 tap_install:
   values:
+    shared:
+      image_registry:
+        project_path: tapmadesimple.azurecr.io/tap-made-simple
+        username: tapmadesimple
+
     ceip_policy_disclosed: true # Installation fails if this is not set to true. Not a string.
 
     profile: full # Can take iterate, build, run, view.
