@@ -13,3 +13,18 @@ tap_install:
     ceip_policy_disclosed: true # Installation fails if this is not set to true. Not a string.
 
     profile: full # Can take iterate, build, run, view.
+
+    contour:
+      envoy:
+        service:
+          type: LoadBalancer # This is set by default, but can be overridden by setting a different value.
+
+    tap_gui:
+      metadataStoreAutoconfiguration: true # Creates a service account, the Kubernetes control plane token and the requisite app_config block to enable communications between Tanzu Application Platform GUI and SCST - Store.
+      app_config:
+        auth:
+          allowGuestAccess: true
+        catalog:
+          locations:
+            - type: url
+              target: https://github.com/pvtl-pre/tap-catalogs/blob/main/yelb-catalog/catalog-info.yaml
