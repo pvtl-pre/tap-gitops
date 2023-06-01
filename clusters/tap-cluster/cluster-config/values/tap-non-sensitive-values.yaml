@@ -3,6 +3,7 @@ tap_install:
   values:
     shared:
       ingress_domain: tap.az.tanzu.fun
+      ingress_issuer: ""
 
       image_registry:
         project_path: tapmadesimple.azurecr.io/tap-made-simple
@@ -22,13 +23,25 @@ tap_install:
     tap_gui:
       metadataStoreAutoconfiguration: true # Creates a service account, the Kubernetes control plane token and the requisite app_config block to enable communications between Tanzu Application Platform GUI and SCST - Store.
       app_config:
-        auth:
-          allowGuestAccess: true
         catalog:
           locations:
             - type: url
               target: https://github.com/pvtl-pre/tap-catalogs/blob/main/yelb-catalog/catalog-info.yaml
 
+    supply_chain: basic # Can take testing, testing_scanning.
+
     metadata_store:
       ns_for_export_app_cert: "default"
       app_service_type: ClusterIP # Defaults to LoadBalancer. If shared.ingress_domain is set earlier, this must be set to ClusterIP.
+
+    scanning:
+      metadataStore:
+        url: "" # Configuration is moved, so set this string to empty.
+
+    grype:
+      namespace: "default"
+      targetImagePullSecret: "TARGET-REGISTRY-CREDENTIALS-SECRET"
+      # In a single cluster, the connection between the scanning pod and the metadata store happens inside the cluster and does not pass through ingress. This is automatically configured, you do not need to provide an ingress connection to the store.
+
+    policy:
+      tuf_enabled: false # By default, TUF initialization and keyless verification are deactivated.
