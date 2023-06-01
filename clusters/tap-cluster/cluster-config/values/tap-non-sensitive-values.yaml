@@ -21,6 +21,7 @@ tap_install:
           type: LoadBalancer # This is set by default, but can be overridden by setting a different value.
 
     tap_gui:
+      service_type: ClusterIP # If the shared.ingress_domain is set as earlier, this must be set to ClusterIP.
       metadataStoreAutoconfiguration: true # Creates a service account, the Kubernetes control plane token and the requisite app_config block to enable communications between Tanzu Application Platform GUI and SCST - Store.
       app_config:
         catalog:
