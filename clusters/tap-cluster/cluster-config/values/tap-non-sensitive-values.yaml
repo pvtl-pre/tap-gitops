@@ -28,3 +28,7 @@ tap_install:
           locations:
             - type: url
               target: https://github.com/pvtl-pre/tap-catalogs/blob/main/yelb-catalog/catalog-info.yaml
+
+    metadata_store:
+      ns_for_export_app_cert: "default"
+      app_service_type: ClusterIP # Defaults to LoadBalancer. If shared.ingress_domain is set earlier, this must be set to ClusterIP.
