@@ -42,6 +42,6 @@ tap_install:
       namespace: "default"
 
     package_overlays:
-    - name: adjust-liveness-probe-params-overlay
+    - name: tap-gui
       secrets:
       - name: adjust-liveness-probe-params-overlay
