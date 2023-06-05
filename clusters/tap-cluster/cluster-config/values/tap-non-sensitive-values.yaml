@@ -40,3 +40,8 @@ tap_install:
 
     grype:
       namespace: "default"
+
+    package_overlays:
+    - name: adjust-liveness-probe-params-overlay
+      secrets:
+      - name: adjust-liveness-probe-params-overlay
