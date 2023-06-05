@@ -18,8 +18,7 @@ stringData:
           containers:
             #@overlay/match by=overlay.subset({"name": "backstage"}),expects="1+"
             #@overlay/match-child-defaults missing_ok=True
-            -
-              #@overlay/remove
-              readinessProbe: _
-              #@overlay/remove
-              livenessProbe: _
+            - readinessProbe:
+                initialDelaySeconds: 15
+              livenessProbe:
+                initialDelaySeconds: 15
