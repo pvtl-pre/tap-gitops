@@ -13,3 +13,6 @@ tap_install:
     ceip_policy_disclosed: true # Installation fails if this is not set to true. Not a string.
 
     profile: full # Can take iterate, build, run, view.
+
+    tap_gui:
+      metadataStoreAutoconfiguration: true # Creates a service account, the Kubernetes control plane token and the requisite app_config block to enable communications between Tanzu Application Platform GUI and SCST - Store.
