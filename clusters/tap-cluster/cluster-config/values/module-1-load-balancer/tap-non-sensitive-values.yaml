@@ -17,4 +17,4 @@ tap_install:
     contour:
       envoy:
         service:
-          type: LoadBalancer # This is set by default, but can be overridden by setting a different value.
+          type: ClusterIP # This is set by default, but can be overridden by setting a different value.
