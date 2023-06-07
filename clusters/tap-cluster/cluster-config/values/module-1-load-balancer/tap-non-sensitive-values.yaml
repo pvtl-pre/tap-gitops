@@ -13,3 +13,8 @@ tap_install:
     ceip_policy_disclosed: true # Installation fails if this is not set to true. Not a string.
 
     profile: full # Can take iterate, build, run, view.
+
+    contour:
+      envoy:
+        service:
+          type: LoadBalancer # This is set by default, but can be overridden by setting a different value.
