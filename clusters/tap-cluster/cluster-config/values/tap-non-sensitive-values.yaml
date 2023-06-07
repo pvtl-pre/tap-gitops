@@ -14,6 +14,9 @@ tap_install:
 
     profile: full # Can take iterate, build, run, view.
 
+    tap_gui:
+      metadataStoreAutoconfiguration: true # Creates a service account, the Kubernetes control plane token and the requisite app_config block to enable communications between Tanzu Application Platform GUI and SCST - Store.
+
     package_overlays:
       - name: tap-gui
         secrets:
